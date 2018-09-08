@@ -1,10 +1,10 @@
 {
   "name": "vwi",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A Vue.js component library",
   "author": "yywang95 <199950720@qq.com>",
   "private": false,
-  "main": "dist/static/js/vwi.min.js",
+  "main": "dist/vwi.min.js",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
