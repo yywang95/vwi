@@ -1,0 +1,38 @@
+.#{$prefix}-badge {
+  display: inline-block;
+  padding: $badge-padding-y $badge-padding-x;
+  font-size: $badge-font-size;
+  font-weight: $badge-font-weight;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  @include border-radius($badge-border-radius);
+
+  // 空节点则不显示
+  &:empty {
+    display: none;
+  }
+}
+
+// 全圆角
+.#{$prefix}-badge-pill {
+  padding-right: $badge-pill-padding-x;
+  padding-left: $badge-pill-padding-x;
+  @include border-radius($badge-pill-border-radius);
+}
+
+@each $color, $value in $theme-colors {
+  .#{$prefix}-badge-#{$color} {
+    color: color-yiq($value);
+    background-color: $value;
+
+    &[href] {
+      @include hover-focus {
+        color: color-yiq($value);
+        text-decoration: none;
+        background-color: darken($value, 10%); //让颜色变暗
+      }
+    }
+  }
+}

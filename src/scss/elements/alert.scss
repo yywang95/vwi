@@ -1,0 +1,26 @@
+.#{$prefix}-alert {
+  position: relative;
+  padding: $alert-padding-y $alert-padding-x;
+  border: $alert-border-width solid transparent;
+  @include border-radius($alert-border-radius);
+}
+
+.#{$prefix}-alert-dismissible {
+  padding-right: ($close-font-size + $alert-padding-x * 2);
+  .#{$prefix}-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: ($alert-padding-y - 0.1) $alert-padding-x;
+    color: inherit;
+  }
+}
+
+// 生成主题样式
+@each $color, $value in $theme-colors {
+  .#{$prefix}-alert-#{$color} {
+    background-color: theme-color-level($color, $alert-bg-level);
+    border-color: theme-color-level($color, $alert-border-level);
+    color: theme-color-level($color, $alert-color-level);
+  }
+}

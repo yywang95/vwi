@@ -1,0 +1,22 @@
+// 生成不同宽度的panel
+@mixin make-difference-panel($breakpoints: $panel-widths, $gutter: $grid-gutter-width) {
+  %panel-default {
+    position: relative;
+    padding-left: $gutter / 2;
+    padding-right: $gutter / 2;
+    min-height: 1px;
+  }
+  @each $breakpoint in map-keys($breakpoints) {
+    .#{prefix}-panel-#{$breakpoint} {
+      @extend %panel-default;
+      width: map-get($breakpoints, $breakpoint);
+    }
+
+    .#{prefix}-panel-#{$breakpoint}-auto {
+      @extend %panel-default;
+      width: map-get($breakpoints, $breakpoint);
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
