@@ -3,13 +3,15 @@
  * (c) 2018 wyy
  */
 
+
 @import './function';
 @import './variables';
+
+@import './iconfont';
 
 @import './mixins/_index';
 
 @import './normalization';
 @import './animate';
-@import './glyphicons';
 
 @import './elements/_index';

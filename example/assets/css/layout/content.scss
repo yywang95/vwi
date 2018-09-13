@@ -1,0 +1,8 @@
+.#{$prefix}-content {
+  position: absolute;
+  top: $content-top;
+  left: $content-left;
+  right: 0;
+  bottom: 0;
+  background-color: $content-bg;
+}

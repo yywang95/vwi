@@ -1,0 +1,37 @@
+.#{$prefix}-nav {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.#{$prefix}-nav-item {
+  float: left; //默认横向显示
+  padding: $nav-item-padding-y $nav-item-padding-x;
+  &.#{$prefix}-active {
+    color: $nav-active-color;
+  }
+}
+
+//带分割线
+.#{$prefix}-nav-divider {
+  .#{$prefix}-nav-item {
+    float: left;
+    padding: 0;
+    // 分割线
+    + .#{$prefix}-nav-item::before {
+      display: inline-block;
+      padding-right: $nav-item-padding-x;
+      padding-left: $nav-item-padding-x;
+      color: $nav-divider-color;
+      content: "#{$nav-divider}";
+    }
+  }
+}
+
+//竖向
+.#{$prefix}-nav-vertical {
+  .#{$prefix}-nav-item {
+    float: none;
+  }
+}

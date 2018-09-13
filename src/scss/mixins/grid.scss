@@ -7,12 +7,12 @@
     min-height: 1px;
   }
   @each $breakpoint in map-keys($breakpoints) {
-    .#{prefix}-panel-#{$breakpoint} {
+    .#{$prefix}-panel-#{$breakpoint} {
       @extend %panel-default;
       width: map-get($breakpoints, $breakpoint);
     }
 
-    .#{prefix}-panel-#{$breakpoint}-auto {
+    .#{$prefix}-panel-#{$breakpoint}-auto {
       @extend %panel-default;
       width: map-get($breakpoints, $breakpoint);
       margin-left: auto;

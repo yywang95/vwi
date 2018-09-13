@@ -8,3 +8,14 @@
 }
 
 @include fade-motion('fade');
+
+@mixin slide-motion($className) {
+  .#{$className}-enter-active, .#{$className}-leave-active {
+    transition: opacity .5s;
+  }
+  .#{$className}-enter, .#{$className}-leave-to {
+    opacity: 0;
+  }
+}
+
+@include slide-motion('slide');

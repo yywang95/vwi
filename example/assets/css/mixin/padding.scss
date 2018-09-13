@@ -1,0 +1,25 @@
+// 生成不同尺寸的padding
+@mixin padding($breakpoints: $padding-widths) {
+  
+  @each $breakpoint in $breakpoints {
+    .#{$prefix}-p-#{$breakpoint} {
+      padding: $breakpoint + px;
+    }
+
+    .#{$prefix}-p-l-#{$breakpoint} {
+      padding-left: $breakpoint + px;
+    }
+
+    .#{$prefix}-p-t-#{$breakpoint} {
+      padding-top: $breakpoint + px;
+    }
+
+    .#{$prefix}-p-r-#{$breakpoint} {
+      padding-right: $breakpoint + px;
+    }
+
+    .#{$prefix}-p-b-#{$breakpoint} {
+      padding-bottom: $breakpoint + px;
+    }
+  }
+}

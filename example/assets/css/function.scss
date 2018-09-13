@@ -1,0 +1,4 @@
+// 根据主题名称获取主题色值
+@function theme-color($key: "primary") {
+  @return map-get($theme-colors, $key);
+}

@@ -1,0 +1,29 @@
+.#{$prefix}-menu {
+  position: absolute;
+  top: $menu-top;
+  bottom: 0;
+  left: 0;
+  width: $menu-width;
+  border-right: $menu-border-width solid $menu-border-color;
+  background-color: $menu-bg;
+}
+
+.#{$prefix}-menu-one {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: $menu-one-width;
+  text-align: center;
+  border-right: $menu-border-width solid $menu-border-color;
+
+  .wi-menu-item {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .#{$prefix}-menu-one-title {
+    font-size: $menu-one-font-size;
+    color: $menu-one-color;
+  }
+}

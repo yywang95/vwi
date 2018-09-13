@@ -1,10 +1,10 @@
 // 容器
 .#{$prefix}-container {
-  width: $grid-center-width;
   padding-right: ($grid-gutter-width / 2);
   padding-left: ($grid-gutter-width / 2);
   margin-right: auto;
   margin-left: auto;
+  box-sizing: border-box;
 }
 
 //panel

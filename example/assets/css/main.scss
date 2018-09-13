@@ -1,3 +1,10 @@
-@import '../../../src/scss/main';
+//utils
+@import './iconfont';
+@import './function';
+@import './variables';
+@import './mixin/_index';
+@import './utils';
 @import './normalize';
 
+//layout
+@import './layout/_index';
