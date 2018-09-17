@@ -1,20 +1,17 @@
 .#{$prefix}-menu {
-  position: absolute;
+  z-index: $topbar-zindex;
+  position: fixed;
   top: $menu-top;
   bottom: 0;
   left: 0;
-  width: $menu-width;
-  border-right: $menu-border-width solid $menu-border-color;
   background-color: $menu-bg;
 }
 
 .#{$prefix}-menu-one {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
   width: $menu-one-width;
+  height: 100%;
   text-align: center;
+  box-sizing: border-box;
   border-right: $menu-border-width solid $menu-border-color;
 
   .wi-menu-item {
@@ -24,6 +21,6 @@
 
   .#{$prefix}-menu-one-title {
     font-size: $menu-one-font-size;
-    color: $menu-one-color;
+    color: inherit;
   }
 }

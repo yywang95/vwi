@@ -1,11 +1,11 @@
 <template>
-  <div class="zp-content">
+  <div class="wi-row">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'LayoutContent'
+  name: 'WiRow'
 }
 </script>

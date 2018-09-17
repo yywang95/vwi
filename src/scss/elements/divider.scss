@@ -1,0 +1,59 @@
+.#{$prefix}-divider {
+  padding: $divider-padding-y $divider-padding-x;
+  &:after {
+    content: "";
+    display: block;
+    border-bottom: $divider-border-width $divider-border-style $divider-border-color;
+  }
+}
+
+@each $name, $value in $border-styles {
+  .#{$prefix}-divider-#{$name} {
+    &:after {
+      border-bottom-style: $value;
+    }
+  }
+}
+
+.#{$prefix}-divider-text {
+  position: relative;
+  .#{$prefix}-divider-placeholder {
+    z-index: $zindex-divider;
+    position: relative;
+    display: block;
+    text-align: left;
+  }
+
+  .#{$prefix}-text {
+    padding-right: $divider-text-padding-x;
+    background-color: #fff;
+  }
+
+  &:after {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+  }
+}
+
+.#{$prefix}-divider-text-center {
+  .#{$prefix}-divider-placeholder {
+    text-align: center;
+
+    .#{$prefix}-text {
+      padding-left: $divider-text-padding-x;
+    }
+  }
+}
+
+.#{$prefix}-divider-text-right {
+  .#{$prefix}-divider-placeholder {
+    text-align: right;
+
+    .#{$prefix}-text {
+      padding-left: $divider-text-padding-x;
+      padding-right: 0;
+    }
+  }
+}

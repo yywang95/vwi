@@ -1,5 +1,7 @@
 //utils
 @import './close';
+@import './colors';
+@import './backgrounds';
 
 //components
 @import './alert';
@@ -7,7 +9,10 @@
 @import './breadcrumb';
 @import './button';
 @import './button-group';
+@import './divider';
 @import './dropdown';
 @import './grid';
 @import './menu';
 @import './nav';
+@import './panel';
+@import './title';

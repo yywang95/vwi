@@ -1,7 +1,7 @@
 // 生成不同尺寸的margin
 @mixin margin($breakpoints: $margin-widths) {
 
-  @each $breakpoint in (2, 4) {
+  @each $breakpoint in $breakpoints {
     .#{$prefix}-m-#{$breakpoint} {
       margin: $breakpoint + px;
     }

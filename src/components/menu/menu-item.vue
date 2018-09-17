@@ -1,8 +1,7 @@
 <template>
   <li
     :class="wrapClasses"
-    class="wi-menu-item"
-    @click="handleClick">
+    class="wi-menu-item">
     <slot></slot>
   </li>
 </template>
@@ -10,7 +9,6 @@
 <script>
 export default {
   name: 'WiMenuItem',
-  inject: ['changeActiveName'],
   props: {
     name: {
       type: [String, Number],
@@ -27,15 +25,6 @@ export default {
       return {
         'wi-active': this.active
       }
-    }
-  },
-  methods: {
-    handleClick (e) {
-      this.active = true
-      this.changeActiveName(this.name)
-    },
-    changeActive (name) {
-      
     }
   }
 }

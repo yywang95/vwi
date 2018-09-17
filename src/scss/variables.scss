@@ -90,8 +90,19 @@ $border-radius-sm:                  $base-size * 0.2px !default;
 $border-width:                      1px !default;
 $border-color:                      $gray-300 !default;
 
+$border-styles: (
+  "dotted": dotted,
+  "dashed": dashed,
+  "double": double,
+  "groove": groove,
+  "inset": inset,
+  "outset": outset,
+  "solid": solid
+);
+
 /* 维护所有z-index */
 $zindex-dropdown:                   1000 !default;
+$zindex-divider:                    1 !default;
 
 /* close */
 $close-font-size:                   $font-size-base * 1.5 !default;
@@ -207,6 +218,15 @@ $btn-font-size-lg:                  $input-form-font-size-lg !default;
 $btn-line-height-lg:                $input-form-line-height-lg !default;
 $btn-border-radius-lg:              $border-radius-lg !default;
 
+/* divider */
+$divider-padding-y:                 15px !default;
+$divider-padding-x:                 0 !default;
+$divider-border-width:              $border-width !default;
+$divider-border-style:              solid !default;
+$divider-border-color:              $border-color !default;
+
+$divider-text-padding-x:            12px !default;
+
 /* dropdown */
 $dropdown-padding-y:                $base-size * 0.5px !default;
 $dropdown-padding-x:                0 !default;
@@ -226,22 +246,49 @@ $dropdown-link-active-color:        $component-active-color !default;
 $dropdown-link-active-bg:           $component-active-bg !default;
 $dropdown-link-disabled-color:      $gray-600 !default;
 
+/* grid */
+$grid-columns:                      24 !default;
+
 /* menu */
-$menu-item-padding-y:           $base-size * 0.5px !default;
-$menu-item-padding-x:           $base-size * 1.5px !default;
-$menu-item-line-height:         $line-height-base !default;
-$menu-link-color:               $body-color !default;
-$menu-link-hover-color:         darken($gray-900, 5%) !default;
-$menu-link-hover-bg:            $gray-100 !default;
-$menu-link-active-color:        $component-active-color !default;
-$menu-link-active-bg:           $component-active-bg !default;
-$menu-link-disabled-color:      $gray-600 !default;
+$menu-item-padding-y:               $base-size * 0.5px !default;
+$menu-item-padding-x:               $base-size * 1.5px !default;
+$menu-item-line-height:             $line-height-base !default;
+$menu-link-color:                   $body-color !default;
+$menu-link-hover-color:             darken($gray-900, 5%) !default;
+$menu-link-hover-bg:                $gray-100 !default;
+$menu-link-active-color:            $component-active-color !default;
+$menu-link-active-bg:               $component-active-bg !default;
+$menu-link-disabled-color:          $gray-600 !default;
 
 /* nav */
+$nav-item-padding-y:                $base-size * 0.5px !default;
+$nav-item-padding-x:                $base-size * 1.2px !default;
 
-$nav-item-padding-y:             $base-size * 0.5px !default;
-$nav-item-padding-x:             $base-size * 1.2px !default;
+$nav-active-color:                  $primary !default;
+$nav-divider-color:                 $gray-600 !default;
+$nav-divider:                       "|" !default;
 
-$nav-active-color:               $primary !default;
-$nav-divider-color:              $gray-600 !default;
-$nav-divider:                    "|" !default;
+/* panel */
+$panel-padding-x:                   15px !default;
+$panel-padding-y:                   15px !default;
+$panel-border-width:                $border-width !default;
+$panel-border-color:                $border-color !default;
+$panel-border-radius:               $border-radius !default;
+$panel-header-bg:                   $gray-100 !default;
+
+/* title */
+$title-sizes: () !default; //定义一个空数组
+$title-sizes: (
+  "h1": floor($font-size-base * 2.6),
+  "h2": floor($font-size-base * 2.2),
+  "h3": floor($font-size-base * 1.75),
+  "h4": floor($font-size-base * 1.3),
+  "h5": floor($font-size-base),
+  "small": floor($font-size-base * 0.9)
+);
+$title-color:                       $gray-800 !default;
+$title-font-size:                   $font-size-lg !default;
+$title-line-height:                 $line-height-base !default;
+$title-font-weight:                 $font-weight-bold !default;
+$title-border-width:                $border-width !default;
+$title-border-color:                darken($title-color, 10%) !default;

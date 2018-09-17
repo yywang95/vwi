@@ -20,3 +20,29 @@
 @include margin();
 
 @include padding();
+
+.#{$prefix}-color-box {
+  display: inline-block;
+  width: $color-box-width;
+  height: $color-box-width;
+  border: $color-box-border-width solid $color-box-border-color;
+  vertical-align: middle;
+
+  @include border-radius($color-box-border-radius);
+}
+
+.#{$prefix}-content-box {
+  min-height: $content-box-height;
+  color: $content-box-color;
+  background-color: $content-box-bg;
+
+  @include border-radius($color-box-border-radius);
+}
+
+.#{$prefix}-text-highlight {
+  padding-left: $highlight-padding-x;
+  padding-right: $highlight-padding-x;
+  color: $highlight-color !important;
+  background-color: mix(if($highlight-level < 0, #000, #fff), $highlight-color, $highlight-level);
+  @include border-radius($highlight-border-radius);
+}

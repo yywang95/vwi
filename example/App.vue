@@ -2,7 +2,9 @@
   <div id="app">
     <Top></Top>
     <Menu></Menu>
-    <Content></Content>
+    <Content>
+      <router-view></router-view>
+    </Content>
   </div>
 </template>
 
@@ -12,11 +14,6 @@ import Menu from './layout/menu'
 import Content from './layout/content'
 export default {
   name: 'App',
-  components: {Top, Menu, Content},
-  methods: {
-    click (e) {
-      console.log('aaa')
-    }
-  }
+  components: {Top, Menu, Content}
 }
 </script>

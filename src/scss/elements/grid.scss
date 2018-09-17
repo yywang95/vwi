@@ -9,3 +9,10 @@
 
 //panel
 @include make-difference-panel();
+
+// 栅格布局
+.#{$prefix}-row {
+  @include clearfix();
+}
+
+@include make-grid-columns();

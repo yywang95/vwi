@@ -20,3 +20,15 @@
     }
   }
 }
+
+@mixin make-grid-columns($i: 1, $list: ".col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}") {
+  @for $i from 1 through $grid-columns {
+    .#{$prefix}-col-#{$i} {
+      position: relative;
+      float: left;
+      // Prevent columns from collapsing when empty
+      min-height: 1px;
+      width: floor(100% * $i * 100 / $grid-columns) / 100;
+    }
+  }
+}

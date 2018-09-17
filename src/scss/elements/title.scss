@@ -1,0 +1,18 @@
+.#{$prefix}-title {
+  margin: 0;
+  padding: 0;
+  line-height: $title-line-height;
+  font-weight: $title-font-weight;
+  font-size: $title-font-size;
+  color: $title-color;
+}
+
+@each $name, $size in $title-sizes {
+  .#{$prefix}-title-#{$name} {
+    font-size: $size;
+  }
+}
+
+.#{$prefix}-title-underline {
+  border-bottom: $title-border-width solid $title-border-color;
+}

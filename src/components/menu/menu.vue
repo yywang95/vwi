@@ -7,11 +7,6 @@
 <script>
 export default {
   name: 'WiMenu',
-  provide () {
-    return  {
-      changeActiveName: this.changeActiveName
-    }
-  },
   props: {
     activeName: {
       type: [String, Number]
@@ -25,11 +20,6 @@ export default {
   data () {
     return {
       currentActiveName: this.activeName
-    }
-  },
-  methods: {
-    changeActiveName (name) {
-      console.log(name)
     }
   }
 }

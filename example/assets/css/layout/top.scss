@@ -1,4 +1,9 @@
 .#{$prefix}-topbar {
+  z-index: $topbar-zindex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   height: $top-height;
   line-height: $top-height;
   color: $top-color;

@@ -1,5 +1,5 @@
 $prefix:                           "zp" !default;
-
+$enable-rounded:                   true !default;
 $base-size:                        14 !default;
 
 /* 颜色 */
@@ -49,7 +49,7 @@ $theme-colors: map-merge((
 ), $theme-colors);
 
 /* margin */
-$margin-widths: 4 !default;
+$margin-widths: (4, 8, 12, 16) !default;
 
 /* padding */
 $padding-widths: 4 !default;
@@ -83,6 +83,28 @@ $link-decoration:                   none !default;
 $link-hover-color:                  darken($link-color, 15%) !default;
 $link-hover-decoration:             underline !default;
 
+/* color box */
+$color-box-width:                   1em !default;
+$color-box-height:                  1em !default;
+$color-box-border-width:            $border-width !default;
+$color-box-border-color:            $border-color !default;
+$color-box-border-radius:           $border-radius !default;
+
+/* content-box */
+$content-box-height:                150px !default;
+$content-box-color:                 $white !default;
+$content-box-bg:                    $gray-600 !default;
+
+/* highlight */
+$highlight-padding-x:               4px !default;
+$highlight-color:                   $red !default;
+$highlight-level:                   80 !default;
+$highlight-border-radius:           $border-radius !default;
+
+/* z-index */
+$topbar-zindex:                     2 !default;
+$menu-zindex:                       2 !default;
+
 /* body */
 $body-bg:                           $white !default;
 $body-color:                        $gray-900 !default;
@@ -96,7 +118,6 @@ $top-border-color:                  $border-color !default;
 
 /* menu */
 $menu-top:                          $top-height !default;
-$menu-width:                        $base-size * 21px !default;
 $menu-border-width:                 $border-width !default;
 $menu-border-color:                 $border-color !default;
 $menu-bg:                           $white !default;
@@ -109,5 +130,7 @@ $menu-list-top:                     $base-size * 1px !default;
 
 /* content */
 $content-top:                       $top-height !default;
-$content-left:                      $menu-width !default;
+$content-left:                      $menu-one-width + $menu-border-width !default;
 $content-bg:                        $white !default;
+$content-padding-x:                 15px !default;
+$content-padding-y:                 15px !default;

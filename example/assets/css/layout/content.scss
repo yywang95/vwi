@@ -3,6 +3,6 @@
   top: $content-top;
   left: $content-left;
   right: 0;
-  bottom: 0;
+  padding: $content-padding-x $content-padding-y;
   background-color: $content-bg;
 }

@@ -1,0 +1,6 @@
+// 生成主题颜色
+@each $color, $value in $theme-colors {
+  .#{$prefix}-#{$color}-bg {
+    background-color: theme-color($color) !important;
+  }
+}
