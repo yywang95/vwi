@@ -1,7 +1,17 @@
 import Alert from './components/alert'
+import Badge from './components/badge'
+import Breadcrumb from './components/breadcrumb'
+import BreadcrumbItem from './components/breadcrumb-item'
+import Button from './components/button'
+import ButtonGroup from './components/button-group'
 
 const components = [
-  Alert
+  Alert,
+  Badge,
+  Breadcrumb,
+  BreadcrumbItem,
+  Button,
+  ButtonGroup
 ]
 
 const install = function (Vue, options = {}) {
@@ -18,7 +28,12 @@ if (typeof window !== 'undefined' && window.Vue) {
 const API = {
   version: '0.0.1',
   install,
-  Alert
+  Alert,
+  Badge,
+  Breadcrumb,
+  BreadcrumbItem,
+  Button,
+  ButtonGroup
 }
 
 module.exports.default = module.exports = API

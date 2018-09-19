@@ -13,7 +13,9 @@ export default {
     wrapClasses () {
       return [
         `wi-badge-${this.$attrs.type || 'info'}`,
-        {'wi-badge-pill': this.$attrs.pill}
+        {
+          'wi-badge-pill': this.$attrs.pill !== undefined
+        }
       ]
     }
   }

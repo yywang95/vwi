@@ -75,6 +75,9 @@ $theme-colors: map-merge((
 ), $theme-colors);
 
 $theme-color-interval:              8% !default; // 设置颜色等级
+$yiq-contrasted-threshold: 150 !default; // 用于确定颜色的亮度何时从“暗”变为“浅”，可接受的值介于0到255之间
+$yiq-text-dark: $gray-900 !default; // 定义暗色字体颜色
+$yiq-text-light: $white !default;  // 定义亮色字体颜色
 
 
 /* 字体 -------------------------------------------------------------------------- */
@@ -102,6 +105,11 @@ $border-width:                      1px !default;
 $border-color:                      $gray-300 !default;
 
 
+/* 组件默认激活状态 ---------------------------------------------------------------- */
+$component-active-bg:               theme-color("primary") !default;
+$component-active-color:            $white !default;
+
+
 /* link ------------------------------------------------------------------------- */
 $link-color:                        theme-color("primary") !default;
 $link-decoration:                   none !default;
@@ -114,6 +122,31 @@ $close-font-size:                   $font-size-base * 1.5 !default;
 $close-font-weight:                 $font-weight-bold !default;
 $close-color:                       $black !default;
 $close-text-shadow:                 0 1px 0 $white !default;
+
+
+/* form ------------------------------------------------------------------------- */
+$input-form-padding-y:              $base-size * 0.375px !default;
+$input-form-padding-x:              $base-size * 0.75px !default;
+
+$input-form-font-size:              $font-size-base !default;
+$input-form-font-weight:            $font-weight-base !default;
+$input-form-line-height:            $line-height-base !default;
+
+$input-form-border-width:           $border-width !default;
+
+$input-form-focus-width:            $base-size * 0.2px !default;
+$input-form-focus-color:            rgba($component-active-bg, .25) !default;
+$input-form-focus-box-shadow:       0 0 0 $input-form-focus-width $input-form-focus-color !default;
+
+$input-form-padding-y-sm:           $base-size * 0.25px !default;
+$input-form-padding-x-sm:           $base-size * 0.5px !default;
+$input-form-font-size-sm:           $font-size-sm !default;
+$input-form-line-height-sm:         $line-height-sm !default;
+
+$input-form-padding-y-lg:           $base-size * 0.5px !default;
+$input-form-padding-x-lg:           $base-size * 1px !default;
+$input-form-font-size-lg:           $font-size-lg !default;
+$input-form-line-height-lg:         $line-height-lg !default;
 
 
 /* body ------------------------------------------------------------------------- */
@@ -130,3 +163,60 @@ $alert-border-width:                $border-width !default;
 $alert-bg-level:                    -10 !default;
 $alert-border-level:                -9 !default;
 $alert-color-level:                 6 !default;
+
+
+/* badge ------------------------------------------------------------------------ */
+$badge-font-size:                   75% !default;
+$badge-font-weight:                 $font-weight-bold !default;
+$badge-padding-y:                   $base-size * 0.25px !default;
+$badge-padding-x:                   $base-size * 0.4px !default;
+$badge-border-radius:               $border-radius !default;
+$badge-pill-padding-x:              $base-size * 0.6px !default;
+//使用比较大的值保证全角
+$badge-pill-border-radius:          $base-size * 10px !default;
+
+
+/* breadcrumb ------------------------------------------------------------------- */
+$breadcrumb-padding-y:              $base-size * 0.75px !default;
+$breadcrumb-padding-x:              $base-size * 1px !default;
+$breadcrumb-item-padding:           $base-size * 0.5px !default;
+$breadcrumb-margin-bottom:          0 !default;
+
+$breadcrumb-bg:                     $gray-200 !default;
+$breadcrumb-divider-color:          $gray-600 !default;
+$breadcrumb-active-color:           $gray-600 !default;
+$breadcrumb-divider:                "/" !default;
+
+$breadcrumb-border-width:           $border-width !default;
+$breadcrumb-border-radius:          $border-radius !default;
+
+
+/* button ----------------------------------------------------------------------- */
+$btn-padding-y:                     $input-form-padding-y !default;
+$btn-padding-x:                     $input-form-padding-x !default;
+$btn-font-size:                     $input-form-font-size !default;
+$btn-line-height:                   $input-form-line-height !default;
+$btn-font-weight:                   $input-form-font-weight !default;
+$btn-focus-width:                   $input-form-focus-width !default;
+$btn-box-shadow:                    inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075) !default;
+$btn-focus-box-shadow:              $input-form-focus-box-shadow !default;
+$btn-border-width:                  $input-form-border-width !default;
+$btn-border-radius:                 $border-radius !default;
+$btn-disabled-opacity:              .65 !default;
+$btn-disabled-cursor:               not-allowed !default;
+$btn-link-disabled-color:           $gray-600 !default;
+$btn-active-box-shadow:             inset 0 3px 5px rgba($black, .125) !default;
+
+$btn-padding-y-sm:                  $input-form-padding-y-sm !default;
+$btn-padding-x-sm:                  $input-form-padding-x-sm !default;
+$btn-font-size-sm:                  $input-form-font-size-sm !default;
+$btn-line-height-sm:                $input-form-line-height-sm !default;
+$btn-border-radius-sm:              $border-radius-sm !default;
+
+$btn-padding-y-lg:                  $input-form-padding-y-lg !default;
+$btn-padding-x-lg:                  $input-form-padding-x-lg !default;
+$btn-font-size-lg:                  $input-form-font-size-lg !default;
+$btn-line-height-lg:                $input-form-line-height-lg !default;
+$btn-border-radius-lg:              $border-radius-lg !default;
+
+$btn-block-spacing-y:               $base-size * 0.5px !default;

@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <ol class="wi-breadcrumb wi-clearfix">
+    <ol class="wi-breadcrumb">
       <slot></slot>
     </ol>
   </nav>
@@ -8,14 +8,6 @@
 
 <script>
 export default {
-  name: 'WiBreadcrumb',
-  computed: {
-    wrapClasses () {
-      return [
-        `wi-alert-${this.$attrs.type || 'info'}`,
-        {'wi-alert-dismissible': this.$attrs.dismissable}
-      ]
-    }
-  }
+  name: 'WiBreadcrumb'
 }
 </script>

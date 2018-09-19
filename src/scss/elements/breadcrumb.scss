@@ -1,0 +1,26 @@
+.#{$prefix}-breadcrumb {
+  margin-bottom: $breadcrumb-margin-bottom;
+  padding: $breadcrumb-padding-y $breadcrumb-padding-x;
+  list-style: none;
+  border: $breadcrumb-border-width solid transparent;
+  background-color: $breadcrumb-bg;
+  
+  @include border-radius($breadcrumb-border-radius);
+  @include clearfix();
+}
+
+.#{$prefix}-breadcrumb-item {
+  float: left;
+  // 分割线
+  + .#{$prefix}-breadcrumb-item::before {
+    display: inline-block;
+    padding-right: $breadcrumb-item-padding;
+    padding-left: $breadcrumb-item-padding;
+    color: $breadcrumb-divider-color;
+    content: "#{$breadcrumb-divider}";
+  }
+
+  &.#{$prefix}-active {
+    color: $breadcrumb-active-color;
+  }
+}

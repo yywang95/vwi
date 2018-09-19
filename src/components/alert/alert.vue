@@ -25,10 +25,15 @@ export default {
   },
   computed: {
     wrapClasses () {
-      return [`wi-alert-${this.$attrs.type || "info"}`]
+      return [
+        `wi-alert-${this.$attrs.type || "info"}`,
+        {
+          'wi-alert-dismissible': this.showClose
+        }
+      ]
     },
     showClose () {
-      return this.$attrs.dismissible !== undefined
+      return this.$attrs.dismissible && this.$attrs.dismissible !== undefined
     }
   },
   methods: {

@@ -12,7 +12,9 @@ export default {
   computed: {
     wrapClasses () {
       return [
-        {'wi-active': this.$attrs.active}
+        {
+          'wi-active': this.$attrs.active && this.$attrs.active !== undefined
+        }
       ]
     }
   }

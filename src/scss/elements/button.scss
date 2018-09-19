@@ -1,0 +1,182 @@
+.#{$prefix}-btn {
+  display: inline-block;
+  padding: $btn-padding-y $btn-padding-x;
+  font-size: $btn-font-size;
+  font-weight: $btn-font-weight;
+  line-height: $btn-line-height;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: $btn-border-width solid transparent;
+
+  @include border-radius($btn-border-radius);
+  @include hover-focus {
+    text-decoration: none;
+  }
+
+  &:focus,
+  &.focus {
+    outline: 0;
+    // box-shadow: $btn-focus-box-shadow;
+  }
+
+  // 非禁用模式下鼠标经过为手型
+  &:not(:disabled):not(.disabled) {
+    cursor: pointer;
+  }
+
+  // 禁用样式
+  &.disabled,
+  &:disabled {
+    opacity: $btn-disabled-opacity;
+    box-shadow: none;
+    cursor: $btn-disabled-cursor;
+  }
+}
+
+// 背景色按钮
+@each $color, $value in $theme-colors {
+  $hover-background: darken($value, 10%);
+  $hover-border: darken($value, 10%);
+
+  .#{$prefix}-btn-#{$color} {
+    color: color-yiq($value);
+    border-color: $value;
+    background-color: $value;
+    
+    @include hover {
+      color: color-yiq($hover-background);
+      background-color: $hover-background;
+      border-color: $hover-border;
+    }
+
+    &.#{$prefix}-active {
+      color: color-yiq($hover-background);
+      background-color: $hover-background;
+      border-color: $hover-border;
+    }
+
+    &:focus,
+    &.focus {
+      // box-shadow: 0 0 0 $btn-focus-width rgba($value, .5);
+    }
+
+    &.disabled,
+    &:disabled {
+      color: color-yiq($value);
+      background-color: $value;
+      border-color: $value;
+    }
+  }
+}
+
+// 边框按钮
+@each $color, $value in $theme-colors {
+  .#{$prefix}-btn-outline-#{$color} {
+    color: $value;
+    border-color: $value;
+
+    @include hover {
+      color: color-yiq($value);
+      background-color: $value;
+    }
+
+    &.#{$prefix}-active {
+      color: color-yiq($value);
+      background-color: $value;
+    }
+
+    &:focus,
+    &.focus {
+      // box-shadow: 0 0 0 $btn-focus-width rgba($value, .5);
+    }
+
+    &.disabled,
+    &:disabled {
+      color: $value;
+      background-color: transparent;
+    }
+  }
+}
+
+// 链接按钮
+.#{$prefix}-btn-link {
+  color: $link-color;
+  background-color: transparent;
+
+  @include hover {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+
+  &:focus,
+  &.focus {
+    text-decoration: $link-hover-decoration;
+    border-color: transparent;
+    box-shadow: none;
+  }
+
+  &:disabled,
+  &.disabled {
+    color: $btn-link-disabled-color;
+  }
+}
+
+// 设置大小
+.#{$prefix}-btn-lg {
+  padding: $btn-padding-y-lg $btn-padding-x-lg;
+  font-size: $btn-font-size-lg;
+  line-height: $btn-line-height-lg;
+
+  @include border-radius($btn-border-radius-lg);
+}
+
+.#{$prefix}-btn-sm {
+  padding: $btn-padding-y-sm $btn-padding-x-sm;
+  font-size: $btn-font-size-sm;
+  line-height: $btn-line-height-sm;
+
+  @include border-radius($btn-border-radius-sm);
+}
+
+// block button
+.#{$prefix}-btn-block {
+  display: block;
+  width: 100%;
+
+  // 竖向排列的设置大小
+  + .#{$prefix}-btn-block {
+    margin-top: $btn-block-spacing-y;
+  }
+}
+
+// 按钮组
+.#{$prefix}-btn-group {
+  display: inline-block;
+
+  @include clearfix();
+
+  > .#{$prefix}-btn {
+    float: left;
+  }
+
+  > .#{$prefix}-btn:not(:last-child) {
+    @include border-right-radius(0);
+  }
+
+  > .#{$prefix}-btn:not(:first-child) {
+    @include border-left-radius(0);
+  }
+}
+
+.#{$prefix}-btn-group-sm {
+  > .#{$prefix}-btn {
+    @extend .#{$prefix}-btn-sm;
+  }
+}
+.#{$prefix}-btn-group-lg {
+  > .btn {
+    @extend .#{$prefix}-btn-lg;
+  }
+}
