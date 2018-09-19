@@ -5,7 +5,7 @@
       :class="wrapClasses"
       class="wi-alert">
       <span
-        v-show="$attrs.dismissable"
+        v-show="showClose"
         class="wi-close"
         @click="handleClose">
         <span>&times;</span>
@@ -21,20 +21,20 @@ export default {
   data () {
     return {
       show: true
-    }
+    };
   },
   computed: {
     wrapClasses () {
-      return [
-        `wi-alert-${this.$attrs.type || 'info'}`,
-        {'wi-alert-dismissible': this.$attrs.dismissable}
-      ]
+      return [`wi-alert-${this.$attrs.type || "info"}`]
+    },
+    showClose () {
+      return this.$attrs.dismissible !== undefined
     }
   },
   methods: {
     handleClose (e) {
-      this.show = false
-      this.$emit('on-dismiss', e)
+      this.show = false;
+      this.$emit("on-dismiss", e)
     }
   }
 }

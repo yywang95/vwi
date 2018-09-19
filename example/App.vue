@@ -1,10 +1,20 @@
 <template>
   <div id="app">
-    <Top></Top>
-    <Menu></Menu>
-    <Content>
-      <router-view></router-view>
-    </Content>
+    <div class="wi-container-fluid wi-container-justify">
+      <div class="wi-container-fluid wi-col-xs-3 zp-content-box"></div>
+      <div class="wi-container-fluid wi-col-xs-3 zp-content-box"></div>
+      <div class="wi-container-fluid wi-col-xs-3 zp-content-box"></div>
+      <div class="wi-container-fluid wi-col-xs-3 zp-content-box"></div>
+    </div>
+    <div class="wi-glyphicon glyphicon-glass"></div>
+
+    <wi-alert>警告</wi-alert>
+    <wi-alert type="primary" dismissible>警告</wi-alert>
+    <wi-alert type="secondary">警告</wi-alert>
+    <wi-alert type="success">警告</wi-alert>
+    <wi-alert type="warning" dismissible>警告</wi-alert>
+    <wi-alert type="danger">警告</wi-alert>
+    <wi-alert type="danger" dismissible>警告</wi-alert>
   </div>
 </template>
 

@@ -1,34 +1,126 @@
-// 生成不同宽度的panel
-@mixin make-difference-panel($breakpoints: $panel-widths, $gutter: $grid-gutter-width) {
-  %panel-default {
-    position: relative;
-    padding-left: $gutter / 2;
-    padding-right: $gutter / 2;
-    min-height: 1px;
-  }
-  @each $breakpoint in map-keys($breakpoints) {
-    .#{$prefix}-panel-#{$breakpoint} {
-      @extend %panel-default;
-      width: map-get($breakpoints, $breakpoint);
-    }
+/*
+ * 根据名称返回最小宽度
+ * @param $name             key
+ * @param $breakpoints      查找的对象
+ */
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+  $min: map-get($breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
 
-    .#{$prefix}-panel-#{$breakpoint}-auto {
-      @extend %panel-default;
-      width: map-get($breakpoints, $breakpoint);
-      margin-left: auto;
-      margin-right: auto;
+// 基础容器样式
+@mixin make-container() {
+  width: 100%;
+  padding-right: ($grid-gutter-width / 2);
+  padding-left: ($grid-gutter-width / 2);
+  margin-right: auto;
+  margin-left: auto;
+  box-sizing: border-box;
+}
+
+/*
+ * 根据不同的响应断点设置不同的最大宽度
+ * @param $max-widths       每个断点的容器最大宽度集合
+ * @param $breakpoints      触发容器改变的断点集合
+ */
+@mixin make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
+  @each $breakpoint, $container-max-width in $max-widths {
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      max-width: $container-max-width;
     }
   }
 }
 
-@mixin make-grid-columns($i: 1, $list: ".col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}") {
-  @for $i from 1 through $grid-columns {
-    .#{$prefix}-col-#{$i} {
-      position: relative;
-      float: left;
-      // Prevent columns from collapsing when empty
-      min-height: 1px;
-      width: floor(100% * $i * 100 / $grid-columns) / 100;
+/*
+ * 生成响应式布局
+ * @param $name             断点名称xs，sm...
+ * @param $breakpoints      触发容器改变的断点集合
+ */
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  //如果有最小值则使用媒体查询，否则直接设置最大宽度
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+/*
+ * 栅格-行基础样式
+ * @param $gutter           装订线宽度
+ */
+@mixin make-row($gutter: $grid-gutter-width) {
+  margin-left:  ceil(($gutter / -2));
+  margin-right: floor(($gutter / -2));
+  @include clearfix;
+}
+
+/*
+ * 栅格-生成列样式
+ * @param $columns          划分多少列
+ * @param $gutter           装订线宽度
+ * @param $breakpoints      触发容器改变的断点集合
+ */
+@mixin make-grid-columns($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
+  // 基础列样式
+  %grid-column {
+    position: relative;
+    float: left;
+    width: 100%;
+    min-height: 1px;
+    padding-right: ($gutter / 2);
+    padding-left: ($gutter / 2);
+    box-sizing: border-box;
+  }
+  
+  // 循环断点keys
+  @each $breakpoint in map-keys($breakpoints) {
+    // -xs -ms..名称
+    $infix: "-#{$breakpoint}";
+
+    // 语法：@for $value from $start through $end 循环，从start开始到end，包括end
+    // 语法：@for $value from $start to $end 循环，从start开始到end，不包括end
+    @for $i from 1 through $columns {
+      .#{$prefix}-col#{$infix}-#{$i} {
+        @extend %grid-column;
+      }
+    }
+
+    // 根据响应式断点设置不同名称和数值下的宽度
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      
+      @for $i from 1 through $columns {
+        // 设置大小
+        .#{$prefix}-col#{$infix}-#{$i} {
+          width: percentage(($i / $columns));
+        }
+
+        // 设置向右改变列排序
+        .#{$prefix}-col#{$infix}-push-#{$i} {
+          left: percentage(($i / $columns));
+        }
+
+        // 设置向左改变列排序
+        .#{$prefix}-col#{$infix}-pull-#{$i} {
+          right: percentage(($i / $columns));
+        }
+
+        // 设置向右偏移
+        .#{$prefix}-col#{$infix}-offset-#{$i} {
+          margin-left: percentage(($i / $columns));
+        }
+      }
+
+      // 设置列排序为0
+      .#{$prefix}-col#{$infix}-push-0 {
+        left: auto;
+      }
+      .#{$prefix}-col#{$infix}-pull-0 {
+        left: auto;
+      }
     }
   }
 }
